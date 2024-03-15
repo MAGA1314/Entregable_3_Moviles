@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,19 +17,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String[] nombres = {
-                "Luis",
-                "Juan",
-                "Pedro"
+                "Luis Edwardo",
+                "Juan Jose",
+                "Maria Fernanda",
+                "Facebook",
+                "Gmail",
+                "GitHub"
         };
         String[] telefonos = {
-                "123",
-                "345",
-                "678"
+                "3002347021",
+                "3002347022",
+                "3002347023",
+                "0",
+                "0",
+                "0"
+        };
+        String[] fechas = {
+                "15/03/2024",
+                "11/02/2024",
+                "09/02/2024",
+                "01/01/2024",
+                "02/02/2024",
+                "24/03/2024"
         };
         int[] fotoperfil = {
                 R.drawable.hombre1,
-                R.drawable.hombre1,
-                R.drawable.hombre1
+                R.drawable.hombre2,
+                R.drawable.mujer1,
+                R.drawable.facebook,
+                R.drawable.gmail,
+                R.drawable.github
         };
         ListAdapter personas = new ListAdapter(MainActivity.this, nombres, telefonos, fotoperfil);
         ListarCorreos = (ListView) findViewById(R.id.listausuarios);
