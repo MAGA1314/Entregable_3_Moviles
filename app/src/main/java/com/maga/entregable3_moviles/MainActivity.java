@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
                 "678"
         };
         int[] fotoperfil = {
-                R.drawable.img2,
-                R.drawable.img3,
-                R.drawable.img4
+                R.drawable.hombre1,
+                R.drawable.hombre1,
+                R.drawable.hombre1
         };
         ListAdapter personas = new ListAdapter(MainActivity.this, nombres, telefonos, fotoperfil);
         ListarCorreos = (ListView) findViewById(R.id.listausuarios);

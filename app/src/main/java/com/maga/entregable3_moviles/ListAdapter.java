@@ -42,7 +42,7 @@ public class ListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         // Identificar quienes son
-        view = inflater.inflate(R.layout.list_item, null);
+        view = inflater.inflate(R.layout.list_items, null);
         ImageView fotoperfil = view.findViewById(R.id.fotoperfilusuario);
         TextView nombreusuario = view.findViewById(R.id.nombre);
         TextView telefonousuario = view.findViewById(R.id.telefono);

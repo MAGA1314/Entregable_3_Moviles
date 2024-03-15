@@ -15,9 +15,9 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/fotoperfilusuario"
-                android:layout_width="0dp"
+                android:layout_width="12dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:src="@drawable/imagenpordefecto">
 
             </de.hdodenhof.circleimageview.CircleImageView>
