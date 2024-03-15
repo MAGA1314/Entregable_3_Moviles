@@ -10,15 +10,18 @@ import android.widget.TextView;
 
 public class ListAdapter extends BaseAdapter {
     Context Contexto;
-    String[] Nombres, NumeroTelefono;
+    String[] Nombres, NumeroTelefono, FechaMensaje, Mensaje;
     int[] IdImagen;
     LayoutInflater inflater; //-> sirve para poner datos (inflar) en una interfaz grafica
 
-    public ListAdapter (Context contexto,String[] nombres, String[] numeroTelefono, int[] idImagen) {
+    public ListAdapter (Context contexto,String[] nombres, String[] numeroTelefono, String[] fechaMensaje, String[] mensaje, int[] idImagen) {
         this.Contexto = contexto;
         this.Nombres = nombres;
         this.NumeroTelefono = numeroTelefono;
+        this.FechaMensaje = fechaMensaje;
+        this.Mensaje = mensaje;
         this.IdImagen = idImagen;
+
         inflater = LayoutInflater.from(Contexto);
 
 
@@ -46,10 +49,14 @@ public class ListAdapter extends BaseAdapter {
         ImageView fotoperfil = view.findViewById(R.id.fotoperfilusuario);
         TextView nombreusuario = view.findViewById(R.id.nombre);
         TextView telefonousuario = view.findViewById(R.id.telefono);
+        TextView fechamesaje = view.findViewById(R.id.fecha);
+        TextView mensaje = view.findViewById(R.id.mensajeu);
         // mostrar datos
         fotoperfil.setImageResource(IdImagen[i]);
         nombreusuario.setText(Nombres[i]);
         telefonousuario.setText(NumeroTelefono[i]);
+        fechamesaje.setText(FechaMensaje[i]);
+        mensaje.setText(Mensaje[i]);
         return view;
     }
 }

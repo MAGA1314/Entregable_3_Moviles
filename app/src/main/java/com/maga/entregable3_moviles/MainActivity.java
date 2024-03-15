@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     ListView ListarCorreos;
@@ -40,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
                 "02/02/2024",
                 "24/03/2024"
         };
+        String[] mensaje = {
+                "mensaje 1",
+                "mensaje 2",
+                "mensaje 3",
+                "mensaje 4",
+                "mensaje 5",
+                "mensaje 6"
+        };
         int[] fotoperfil = {
                 R.drawable.hombre1,
                 R.drawable.hombre2,
@@ -48,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.gmail,
                 R.drawable.github
         };
-        ListAdapter personas = new ListAdapter(MainActivity.this, nombres, telefonos, fotoperfil);
+        ListAdapter personas = new ListAdapter(MainActivity.this, nombres, telefonos, fechas, mensaje, fotoperfil);
         ListarCorreos = (ListView) findViewById(R.id.listausuarios);
         ListarCorreos.setAdapter(personas);
 
