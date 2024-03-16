@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+//Adaptamos la Lista de datos que van a llegar
 public class ListAdapter extends BaseAdapter {
     Context Contexto;
     String[] Nombres, NumeroTelefono, FechaMensaje, Mensaje;

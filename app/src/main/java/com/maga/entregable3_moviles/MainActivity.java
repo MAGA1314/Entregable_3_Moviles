@@ -3,13 +3,14 @@ package com.maga.entregable3_moviles;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.Date;
-
+// Se crean los datos y se envian a la saiguiente pantalla
 public class MainActivity extends AppCompatActivity {
 
     ListView ListarCorreos;
@@ -65,9 +66,16 @@ public class MainActivity extends AppCompatActivity {
         ListarCorreos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> lista, View vista, int posicion, long id) {
+                // Marcar el email como leído
+                SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(nombres[posicion], true); // Usar el nombre como clave
+                editor.apply();
                 Intent enviarInfo = new Intent(MainActivity.this, SegundaPantalla.class)
                         .putExtra("nombre", nombres[posicion])
                         .putExtra("telefono", telefonos[posicion])
+                        .putExtra("fecha", fechas[posicion])
+                        .putExtra("mensaje", mensaje[posicion])
                         .putExtra("imagen", fotoperfil[posicion]);
 
                 startActivity(enviarInfo);
