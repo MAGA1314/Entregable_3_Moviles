@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SegundaPantalla extends AppCompatActivity {
-    String nombre, telefono, fecha, mensaje;
+    String txtnombre, txttelefono, txtfecha, txtmensaje;
     int imagen;
     CircleImageView foto;
     TextView textoNombre, textoTelefono, textoFecha, textoMensaje;
@@ -22,34 +22,34 @@ public class SegundaPantalla extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_items);
-        textoNombre = findViewById(R.id.nombre);
-        textoTelefono = findViewById(R.id.telefono);
-        textoFecha = findViewById(R.id.fecha);
-        textoMensaje = findViewById(R.id.mensajeu);
-        foto = findViewById(R.id.fotoperfilusuario);
+        setContentView(R.layout.segunda_pantalla);
+        textoNombre = findViewById(R.id.txtnombre);
+        textoTelefono = findViewById(R.id.txttelefono);
+        textoFecha = findViewById(R.id.txtfecha);
+        textoMensaje = findViewById(R.id.txtmensaje);
+        foto = findViewById(R.id.imagen);
 
         Intent recibir = this.getIntent();
         if(recibir != null) {
-            nombre = recibir.getStringExtra("nombre");
-            telefono = recibir.getStringExtra("telefono");
-            fecha = recibir.getStringExtra("fecha");
-            mensaje = recibir.getStringExtra("mensaje");
+            txtnombre = recibir.getStringExtra("nombre");
+            txttelefono = recibir.getStringExtra("telefono");
+            txtfecha = recibir.getStringExtra("fecha");
+            txtmensaje = recibir.getStringExtra("mensaje");
             imagen = recibir.getIntExtra("imagen", R.drawable.imagenpordefecto);
 
             // Falta asignar el nombre y telefono al Textview correspondiente
             // la imagen al circleimagen
-            textoNombre.setText(nombre);
-            textoTelefono.setText(telefono);
-            textoFecha.setText(fecha);
-            textoMensaje.setText(mensaje);
+            textoNombre.setText(txtnombre);
+            textoTelefono.setText(txttelefono);
+            textoFecha.setText(txtfecha);
+            textoMensaje.setText(txtmensaje);
 
             // Assigning image resource to CircleImageView
             foto.setImageResource(imagen);
 
             // Verificar si el email ha sido leído
             SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-            boolean emailLeido = sharedPreferences.getBoolean(nombre, false);
+            boolean emailLeido = sharedPreferences.getBoolean(txtnombre, false);
 
             // Actualizar la interfaz de usuario basada en si el email ha sido leído
             if (emailLeido) {
@@ -57,7 +57,7 @@ public class SegundaPantalla extends AppCompatActivity {
                 // Por ejemplo, cambiar el color de fondo de un elemento de la vista
                 textoNombre.setBackgroundColor(Color.GRAY);
             }
-            Button buttonVolver = findViewById(R.id.buttonVolver);
+            Button buttonVolver = findViewById(R.id.btnvolver);
             buttonVolver.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
