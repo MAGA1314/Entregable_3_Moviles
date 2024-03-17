@@ -61,7 +61,7 @@ public class SegundaPantalla extends AppCompatActivity {
             buttonVolver.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    
+
                     finish(); // Finaliza la actividad actual, regresando a la anterior.
                 }
             });
