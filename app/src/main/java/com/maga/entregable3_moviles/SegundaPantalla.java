@@ -23,6 +23,7 @@ public class SegundaPantalla extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.segunda_pantalla);
+
         textoNombre = findViewById(R.id.txtnombre);
         textoTelefono = findViewById(R.id.txttelefono);
         textoFecha = findViewById(R.id.txtfecha);
@@ -47,7 +48,7 @@ public class SegundaPantalla extends AppCompatActivity {
             // Assigning image resource to CircleImageView
             foto.setImageResource(imagen);
 
-            // Verificar si el email ha sido leído
+            /*// Verificar si el email ha sido leído
             SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
             boolean emailLeido = sharedPreferences.getBoolean(txtnombre, false);
 
@@ -56,17 +57,19 @@ public class SegundaPantalla extends AppCompatActivity {
                 // Cambiar la apariencia del email para indicar que ha sido leído
                 // Por ejemplo, cambiar el color de fondo de un elemento de la vista
                 textoNombre.setBackgroundColor(Color.GRAY);
-            }
+            }*/
             Button buttonVolver = findViewById(R.id.btnvolver);
             buttonVolver.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
+                    //Intent intent = new Intent(SegundaPantalla.this, MainActivity.class);
+                    // Pasar un mensaje extra al primer Activity
+                    //intent.putExtra("mensaje", "Visto");
+                    //startActivity(intent);
                     finish(); // Finaliza la actividad actual, regresando a la anterior.
                 }
             });
         }
     }
-
 }
-

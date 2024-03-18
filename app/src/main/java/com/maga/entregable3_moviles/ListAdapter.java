@@ -1,6 +1,7 @@
 package com.maga.entregable3_moviles;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ public class ListAdapter extends BaseAdapter {
     Context Contexto;
     String[] Nombres, NumeroTelefono, FechaMensaje, Mensaje;
     int[] IdImagen;
+    //boolean[] MensajesLeidos;
     LayoutInflater inflater; //-> sirve para poner datos (inflar) en una interfaz grafica
 
     public ListAdapter (Context contexto,String[] nombres, String[] numeroTelefono, String[] fechaMensaje, String[] mensaje, int[] idImagen) {
@@ -22,6 +24,7 @@ public class ListAdapter extends BaseAdapter {
         this.FechaMensaje = fechaMensaje;
         this.Mensaje = mensaje;
         this.IdImagen = idImagen;
+        //this.MensajesLeidos = mensajesLeidos;
 
         inflater = LayoutInflater.from(Contexto);
 
@@ -58,6 +61,15 @@ public class ListAdapter extends BaseAdapter {
         telefonousuario.setText(NumeroTelefono[i]);
         fechamesaje.setText(FechaMensaje[i]);
         mensaje.setText(Mensaje[i]);
+/*
+        if (MensajesLeidos[i]) {
+            view.setBackgroundColor(Color.GRAY); // Cambiar el color de fondo, por ejemplo
+        }*/
         return view;
     }
+    /*
+    public void setMensajesLeidos(boolean[] mensajesLeidos) {
+        this.MensajesLeidos = mensajesLeidos; // Asegúrate de que 'MensajesLeidos' es un campo en tu adaptador
+        notifyDataSetChanged(); // Notificar al adaptador que los datos han cambiado
+    }*/
 }
