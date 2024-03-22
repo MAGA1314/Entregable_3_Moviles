@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.github,
                 R.drawable.fifa
         };
+
         // Crear una lista para almacenar el estado de leído de cada mensaje
         //boolean[] mensajesLeidos = new boolean[nombres.length];
 
