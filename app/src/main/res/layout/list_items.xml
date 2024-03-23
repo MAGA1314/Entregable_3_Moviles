@@ -56,8 +56,9 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tvmensaje"
+                android:id="@+id/tvestado"
                 android:layout_width="85dp"
+                android:text="Pendiente"
                 android:layout_height="wrap_content"
                 android:textSize="16sp" />
         </LinearLayout>

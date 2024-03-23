@@ -13,17 +13,18 @@ import android.widget.TextView;
 public class ListAdapter extends BaseAdapter {
     Context Contexto;
     String[] Nombres, NumeroTelefono, FechaMensaje, Mensaje;
-    int[] IdImagen;
+    int[] IdImagen, Estado;
     //boolean[] MensajesLeidos;
     LayoutInflater inflater; //-> sirve para poner datos (inflar) en una interfaz grafica
 
-    public ListAdapter (Context contexto,String[] nombres, String[] numeroTelefono, String[] fechaMensaje, String[] mensaje, int[] idImagen) {
+    public ListAdapter (Context contexto,String[] nombres, String[] numeroTelefono, String[] fechaMensaje, String[] mensaje, int[] idImagen, int[] estado) {
         this.Contexto = contexto;
         this.Nombres = nombres;
         this.NumeroTelefono = numeroTelefono;
         this.FechaMensaje = fechaMensaje;
         this.Mensaje = mensaje;
         this.IdImagen = idImagen;
+        this.Estado = estado;
         //this.MensajesLeidos = mensajesLeidos;
 
         inflater = LayoutInflater.from(Contexto);
@@ -55,12 +56,21 @@ public class ListAdapter extends BaseAdapter {
         TextView telefonousuario = view.findViewById(R.id.telefono);
         TextView fechamesaje = view.findViewById(R.id.fecha);
         TextView mensaje = view.findViewById(R.id.mensajeu);
+        TextView estado = view.findViewById(R.id.tvestado);
         // mostrar datos
         fotoperfil.setImageResource(IdImagen[i]);
         nombreusuario.setText(Nombres[i]);
         telefonousuario.setText(NumeroTelefono[i]);
         fechamesaje.setText(FechaMensaje[i]);
         mensaje.setText(Mensaje[i]);
+        estado.setText(String.valueOf(Estado[i]));
+
+        // Verificar el estado y establecer el texto del TextView
+        if (Estado[i] == 0) {
+            estado.setText("Pendiente");
+        } else if (Estado[i] == 1) {
+            estado.setText("Visto");
+        }
 /*
         if (MensajesLeidos[i]) {
             view.setBackgroundColor(Color.GRAY); // Cambiar el color de fondo, por ejemplo

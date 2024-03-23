@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -21,14 +23,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*Intent intent1 = getIntent();
-        if (intent1 != null) {
-            String mensajess = intent1.getStringExtra("mensaje");
+        // Cambiar el color de fondo de la pantalla principal a rojo
+        View mainLayout = findViewById(android.R.id.content);
 
-            // Mostrar el mensaje en un TextView u otro componente según tu diseño
-            TextView textView = findViewById(R.id.tvmensaje);
-            textView.setText(mensajess);
-        }*/
+        // Agregar un TextView para mostrar el texto "MYMAIL"
+        TextView myMailTextView = new TextView(this);
+        myMailTextView.setTextSize(24); // Ajustar el tamaño del texto según sea necesario
+        myMailTextView.setTextColor(Color.WHITE); // Cambiar el color del texto a blanco para una mejor visibilidad
+        // Añadir el TextView al layout principal
+        ViewGroup layout = (ViewGroup) findViewById(android.R.id.content);
+        layout.addView(myMailTextView);
 
 
         String[] nombres = {
@@ -76,6 +80,15 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.github,
                 R.drawable.fifa
         };
+        int[] estadoPerfiles = {
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+        };
 
         // Crear una lista para almacenar el estado de leído de cada mensaje
         //boolean[] mensajesLeidos = new boolean[nombres.length];
@@ -87,9 +100,11 @@ public class MainActivity extends AppCompatActivity {
         }*/
 
         // Pasar la información de mensajes leídos al adaptador
-        ListAdapter personas = new ListAdapter(MainActivity.this, nombres, telefonos, fechas, mensaje, fotoperfil);
+        ListAdapter personas = new ListAdapter(MainActivity.this, nombres, telefonos, fechas, mensaje, fotoperfil, estadoPerfiles);
         ListarCorreos = (ListView) findViewById(R.id.listausuarios);
         ListarCorreos.setAdapter(personas);
+
+
 
         ListarCorreos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -105,7 +120,14 @@ public class MainActivity extends AppCompatActivity {
                         .putExtra("telefono", telefonos[posicion])
                         .putExtra("fecha", fechas[posicion])
                         .putExtra("mensaje", mensaje[posicion])
-                        .putExtra("imagen", fotoperfil[posicion]);
+                        .putExtra("imagen", fotoperfil[posicion])
+                        .putExtra("estado",estadoPerfiles[posicion]);
+
+                TextView statusTextView = findViewById(R.id.tvestado);
+                statusTextView.setText("Visto");
+                // Cambiar el valor en la lista de enteros a 1
+                estadoPerfiles[posicion] = 1;
+                personas.notifyDataSetChanged();
 
                 startActivity(enviarInfo);
             }
